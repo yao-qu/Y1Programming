@@ -1,0 +1,36 @@
+{
+    "name": "casebook",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "jest",
+        "start": "nodemon server.js",
+        "pretest": "eslint --ignore-path .gitignore ."
+    },
+    "description": "",
+    "license": "ISC",
+    "author": "",
+    "contributors": [
+        "David Miller (http://davidmiller.io/)"
+    ],
+    "dependencies": {
+        "bootstrap": "4.3.1",
+        "eslint-config-standard": "^14.1.1",
+        "express": "^4.17.1",
+        "jquery": "3.4.1",
+        "mongoose": "^5.9.3",
+        "nodemon": "^2.0.2"
+    },
+    "devDependencies": {
+        "browser-sync": "2.26.7",
+        "del": "^4.1.1",
+        "eslint": "^6.8.0",
+        "eslint-plugin-import": "^2.20.2",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "gulp": "4.0.2",
+        "jest": "^25.5.4",
+        "merge-stream": "2.0.0",
+        "supertest": "^4.0.2"
+    }
+}

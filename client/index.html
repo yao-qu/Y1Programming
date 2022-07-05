@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="EYE.png" type="image/gif" sizes="16x16">
+
+    <title>C A S E B O O K</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/full-width-pics.css" rel="stylesheet">
+
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #31769E; font-family: 'Karla', sans-serif; ">
+        <div class="container">
+
+            <!-- Search bar-->
+            <form id='search_form' action='/search'>
+                <input name='keyword' type='text' placeholder = 'search by title' id='search_keyword' required>
+                <button>Search</button>
+              </form>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="http://127.0.0.1:8090/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="AdminWarn()">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header - set the background image for the header in the line below -->
+    <header class="py-5 bg-image-full" style="background-image: url('bg.jpg');">
+        <img class="img-fluid d-block mx-auto" src="dip_main.png" alt="DI Poole">
+    </header>
+
+    <!-- Content section -->
+    <!-- Page Features -->
+    <div class="row text-center" id="maincontent">
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+
+                <div class="card-body">
+                    <h4 class="card-title" style="font-family:'Karla', sans-serif;">“A misanthropic detective inspector is assigned to a Caribbean island against his will.”<br>
+              ―BBC</h4>
+                    <div id="content_basic"></div>
+                    <p class="card-text">
+                        <div id="synopsis" style="font-family:'Karla', sans-serif;"><button class="btn btn-primary btn-sm" onclick='synopsis()'>load more info</button></div>
+                            
+                        
+                </div>
+            </div>
+        </div>
+
+        <!-- 2nd panel, with input form for new cases -->
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+                <img class="card-img-top" src="images/dip1111.png" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Add new case</h4>
+                    <form id='add_form' action='http://127.0.0.1:8090/newcase' method='post'>
+                        <div>
+                            <input id='new_season' name='season' placeholder='Season' type='text' required>
+                        </div>
+                        <div>
+                            <input id='new_episode' name='episode' placeholder='Episode' type='text' required>
+                        </div>
+                        <div>
+                            <input id='new_title' name='title' placeholder='Title' type='text' required>
+                        </div>
+                        <div>
+                            <input id='new_detective' name='detective' placeholder='Detective' type='text'>
+                        </div>
+                        <div>
+                            <input id='new_victim' name='victim' placeholder='Victim' type='text'>
+                        </div>
+                        <div>
+                            <input id='new_culprit' name='culprit' placeholder='Culprit' type='text'>
+                        </div>
+                        <div>
+                            <input id='new_cause' name='cause' placeholder='Cause of death' type='text'>
+                        </div>
+                        
+                         <div>
+                            <input id='new_thumbnail' name='thumbnail' placeholder='Thumbnail' type='text'>
+                        </div>
+
+                        <div>
+                            <textarea class='form-control' id="new_description" name='description' placeholder='Add description' form='add_form'></textarea>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Add new case file</button>
+
+                    </form>
+                    </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+                <img class="card-img-top" src="images/dip2222.png" alt="">
+                <div class="card-footer">
+                    <button onclick="del2()"><img src="images/icons/remove.png" alt="delete" style="width:25px;height:25px;"></button>
+                </div>
+                <div class="card-body" id='ep2'>
+                    <p>Use the search box above to search epsiode by title.</p>
+                    <div class="text-justify" id='mysearchresult'></div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- 4th Panel, with admin update box -->
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+                <img class="card-img-top" src="images/dip3333.png" alt="">
+                <div class="card-body" id='testresults'>
+                    <h4 class="card-title">Admin Updates</h4>
+
+                    <!--Comment box-->
+                    <form id='add_comment' action='http://127.0.0.1:8090/newcomment' method='post'>
+                        <select class="form-control" id="new_admin" name='Admin'>
+                            <option>Admin1</option>
+                            <option>Admin2</option>
+                            <option>Admin3</option>
+                          </select>
+
+                        <div>
+                            <textarea class='form-control' id="new_comment" name='Comment' placeholder='comment' form='add_comment' required></textarea>
+                        </div>
+                        <button class='btn btn-primary btn-sm' onclick='cb()'>Post update</button>
+
+                    </form>
+                    <br>
+                    <!--container for comments-->
+                    <div id="commentbar"></div>                   
+                </div>           
+            </div>
+        </div>
+
+    </div>
+    <!--end of main container-->
+
+    <!-- Footer -->
+    <footer style=" background-color: #79C4D6; font-family: 'Karla', sans-serif; height: 5px;">
+        <div class="container">
+            <p class="m-0 text-center text-white">Programming Assessment Term 2 : MDBF67</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- My custom JS and CSS -->
+    <script src="myJS/addon.js"></script>
+
+</body>
+
+</html>
